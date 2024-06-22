@@ -14,9 +14,8 @@ return {
 				null_ls.builtins.formatting.stylua,
 				-- Python
 				null_ls.builtins.formatting.isort,
-				null_ls.builtins.formatting.black,
 				null_ls.builtins.formatting.black.with({
-					extra_args = { "--line-check=100" },
+					extra_args = { "--line-length=100" },
 				}),
 				null_ls.builtins.diagnostics.mypy,
 				-- Typescript
@@ -32,7 +31,6 @@ return {
 						group = augroup,
 						buffer = bufnr,
 						callback = function()
-							-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
 							-- on later neovim version, you should use vim.lsp.buf.format({ async = false }) instead
 							vim.lsp.buf.format({ async = false })
 						end,
